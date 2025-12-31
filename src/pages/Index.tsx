@@ -19,20 +19,18 @@ import {
   MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import TrustBadge from "@/components/TrustBadge";
 import ServiceCard from "@/components/ServiceCard";
-import ProjectCard from "@/components/ProjectCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ProcessStep from "@/components/ProcessStep";
 import ContactForm from "@/components/ContactForm";
 
-// Images
-import heroBg from "@/assets/hero-bg.jpg";
-import beforeLivingRoom from "@/assets/before-living-room.jpg";
-import afterLivingRoom from "@/assets/after-living-room.jpg";
-import beforeKitchen from "@/assets/before-kitchen.jpg";
-import afterKitchen from "@/assets/after-kitchen.jpg";
+// Images - Real Projects
+import bathroomBeforeAfter from "@/assets/bathroom-before-after.png";
+import bedroomBeforeAfter from "@/assets/bedroom-before-after.png";
+import diningBeforeAfter from "@/assets/dining-before-after.png";
+import hallwayBeforeAfter from "@/assets/hallway-before-after.png";
+import livingBeforeAfter from "@/assets/living-before-after.png";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -52,7 +50,10 @@ const Index = () => {
             <div className="w-10 h-10 gradient-navy rounded-lg flex items-center justify-center">
               <Wrench className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-lg font-bold text-foreground">تشطيبات محترفة</span>
+            <div className="flex flex-col">
+              <span className="text-base md:text-lg font-bold text-foreground leading-tight">المهندس أحمد جوده</span>
+              <span className="text-xs text-accent">للتشطيبات الفاخرة</span>
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <a
@@ -75,17 +76,20 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center pt-20">
         <div className="absolute inset-0 z-0">
           <img
-            src={heroBg}
-            alt="تشطيب شقة فاخرة في القاهرة"
+            src={livingBeforeAfter}
+            alt="تشطيب شقة فاخرة - قبل وبعد"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/95 via-primary/80 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-l from-primary/95 via-primary/85 to-primary/70" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">
+            <div className="mb-4">
+              <span className="text-accent text-lg font-semibold">شركة المهندس أحمد جوده</span>
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground mb-6 leading-tight">
-              تشطيبات محترفة
+              تشطيبات فاخرة
               <br />
               <span className="text-gradient-gold">بتسليم على الوقت</span>
             </h1>
@@ -142,7 +146,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="section-heading">من نحن</h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              مهندسون متخصصون في تشطيبات الشقق والفيلات والمحال التجارية بأعلى معايير الجودة والسلامة. 
+              <strong className="text-foreground">شركة المهندس أحمد جوده للتشطيبات الفاخرة</strong> — متخصصون في تشطيبات الشقق والفيلات والمحال التجارية بأعلى معايير الجودة والسلامة. 
               خبرة تتجاوز 15 سنة في السوق المصري، نفذنا أكثر من 150 مشروع في القاهرة الجديدة، التجمع، 
               الشيخ زايد، والمعادي. نلتزم بالجداول الزمنية ونقدم عقود واضحة وشفافة مع ضمان مكتوب على جميع الأعمال.
             </p>
@@ -193,111 +197,163 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="section-heading">أبرز أعمالنا</h2>
-            <p className="text-muted-foreground">مشاريع ناجحة تتكلم عن نفسها</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ProjectCard
-              image={afterLivingRoom}
-              title="شقة فاخرة — التجمع الخامس"
-              type="شقة"
-              location="التجمع الخامس، القاهرة"
-              area="145 م²"
-              duration="45 يوم"
-              scope="تنفيذ كامل على المفتاح يشمل تمديدات، جبس، أرضيات بورسلين، دهانات ديكورية."
-              result="توفير 12% في التكلفة، تسليم قبل الموعد بأسبوع"
-            />
-            <ProjectCard
-              image={afterKitchen}
-              title="فيلا مودرن — الشيخ زايد"
-              type="فيلا"
-              location="الشيخ زايد، الجيزة"
-              area="320 م²"
-              duration="90 يوم"
-              scope="تشطيب سوبر لوكس مع مطبخ مخصص، إضاءة ذكية، وحمامات فندقية."
-              result="رضا العميل التام، توصية لـ 3 مشاريع جديدة"
-            />
-            <ProjectCard
-              image={afterLivingRoom}
-              title="مكتب إداري — المعادي"
-              type="مكتب"
-              location="المعادي، القاهرة"
-              area="85 م²"
-              duration="30 يوم"
-              scope="تجهيز مكتب إداري كامل مع أرضيات فينيل وتكييف وإضاءة LED."
-              result="بدء العمل في الموعد المحدد مع العميل"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After Section */}
+      {/* Before/After Section - Real Projects */}
       <section id="before-after" className="py-20 bg-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              قبل وبعد
+              سابقة أعمالنا — قبل وبعد
             </h2>
-            <p className="text-primary-foreground/80">اسحب لترى الفرق — تحويل حقيقي من خام لجاهز</p>
+            <p className="text-primary-foreground/80">مشاريع حقيقية نفذتها شركة المهندس أحمد جوده</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Living Room Comparison */}
-            <div className="bg-card rounded-xl p-4 md:p-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                غرفة المعيشة — من خام إلى جاهز
-              </h3>
-              <ImageComparisonSlider
-                beforeImage={beforeLivingRoom}
-                afterImage={afterLivingRoom}
-                beforeAlt="غرفة معيشة قبل التشطيب - جدران خرسانية وأسلاك مكشوفة"
-                afterAlt="غرفة معيشة بعد التشطيب - تصميم فاخر مع أرضيات رخام وإضاءة LED"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Project 1 - Living Room */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={livingBeforeAfter}
+                alt="غرفة المعيشة قبل وبعد التشطيب - تحويل من خام لجاهز"
+                className="w-full h-64 md:h-80 object-cover"
               />
-              <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  تصحيح ميول الأرضية + عزل رطوبة
-                </p>
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  تمديدات كهرباء جديدة مع مسارات مخفية
-                </p>
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  دهانات صديقة للبيئة بتشطيب مطفي
-                </p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  غرفة المعيشة — من خام إلى جاهز
+                </h3>
+                <p className="text-muted-foreground mb-4">تحويل كامل من حالة خام بأسلاك مكشوفة إلى صالة فاخرة بتصميم عصري</p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أسقف جبسية مع إضاءة LED مخفية
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أرضيات باركيه فاخرة
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    دهانات ديكورية عالية الجودة
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Kitchen Comparison */}
-            <div className="bg-card rounded-xl p-4 md:p-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                المطبخ — تحويل كامل
-              </h3>
-              <ImageComparisonSlider
-                beforeImage={beforeKitchen}
-                afterImage={afterKitchen}
-                beforeAlt="مطبخ قبل التشطيب - طوب مكشوف ومواسير ظاهرة"
-                afterAlt="مطبخ بعد التشطيب - مطبخ عصري مع رخام ووحدات تخزين"
+            {/* Project 2 - Bedroom */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={bedroomBeforeAfter}
+                alt="غرفة النوم قبل وبعد التشطيب"
+                className="w-full h-64 md:h-80 object-cover"
               />
-              <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  تمديدات سباكة PPR + غاز آمنة
-                </p>
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  رخام كوارتز مقاوم للحرارة والبقع
-                </p>
-                <p className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                  إضاءة LED مخفية تحت الوحدات
-                </p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  غرفة النوم — تجديد شامل
+                </h3>
+                <p className="text-muted-foreground mb-4">من غرفة غير مكتملة إلى غرفة نوم هادئة بتشطيب سوبر لوكس</p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    دهانات خضراء هادئة صديقة للبيئة
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أرضيات خشب طبيعي
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    تمديدات كهرباء جديدة ومخفية
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - Dining Room */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={diningBeforeAfter}
+                alt="غرفة السفرة قبل وبعد التشطيب"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  غرفة السفرة — تحول فاخر
+                </h3>
+                <p className="text-muted-foreground mb-4">من هيكل خرساني خام إلى غرفة سفرة كلاسيكية راقية</p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أرضيات خشب فاخر
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    ورق حائط ديكوري
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    إضاءة كريستال كلاسيكية
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - Hallway */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={hallwayBeforeAfter}
+                alt="المدخل والطرقة قبل وبعد التشطيب"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  المدخل والطرقة — ترحيب فاخر
+                </h3>
+                <p className="text-muted-foreground mb-4">تحويل مدخل خرساني بأسلاك مكشوفة إلى مدخل راقٍ بتفاصيل كلاسيكية</p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أبواب خشب ماسيف
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    أرضيات باركيه
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    إضاءة ديكورية مخفية
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 5 - Bathroom */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-lg md:col-span-2">
+              <img
+                src={bathroomBeforeAfter}
+                alt="الحمام قبل وبعد التشطيب"
+                className="w-full h-64 md:h-96 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  الحمام — تشطيب فندقي
+                </h3>
+                <p className="text-muted-foreground mb-4">من حمام غير مكتمل إلى حمام بمواصفات فندقية عالية</p>
+                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    رخام أبيض فاخر
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    كابينة شاور زجاجية
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    وحدات تخزين حديثة
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    سباكة مخفية بالكامل
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -320,7 +376,7 @@ const Index = () => {
               projectType="تشطيب شقة"
             />
             <TestimonialCard
-              quote="المهندس فاهم شغله وبيشرح كل خطوة قبل التنفيذ. الجودة عالية جداً والضمان طمّنا إننا اخترنا صح."
+              quote="المهندس أحمد جوده فاهم شغله وبيشرح كل خطوة قبل التنفيذ. الجودة عالية جداً والضمان طمّنا إننا اخترنا صح."
               name="سارة عبدالله"
               location="الشيخ زايد"
               projectType="تشطيب فيلا"
@@ -386,7 +442,7 @@ const Index = () => {
                 جاهز نبدأ؟
               </h2>
               <p className="text-primary-foreground/80 text-lg mb-8">
-                احجز معاينة مجانية الآن وخلينا نساعدك تحقق تشطيب أحلامك. المعاينة مجانية بدون أي التزام.
+                احجز معاينة مجانية الآن مع شركة المهندس أحمد جوده وخلينا نساعدك تحقق تشطيب أحلامك. المعاينة مجانية بدون أي التزام.
               </p>
               
               <div className="space-y-4 mb-8">
@@ -425,8 +481,8 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/70">البريد الإلكتروني</p>
-                    <a href="mailto:info@finishing-pro.com" className="font-semibold hover:text-accent transition-colors">
-                      info@finishing-pro.com
+                    <a href="mailto:info@ahmedgouda.com" className="font-semibold hover:text-accent transition-colors">
+                      info@ahmedgouda.com
                     </a>
                   </div>
                 </div>
@@ -469,10 +525,13 @@ const Index = () => {
               <div className="w-8 h-8 gradient-navy rounded flex items-center justify-center">
                 <Wrench className="w-4 h-4 text-primary-foreground" />
               </div>
-              <span className="font-bold text-foreground">تشطيبات محترفة</span>
+              <div className="flex flex-col">
+                <span className="font-bold text-foreground">المهندس أحمد جوده</span>
+                <span className="text-xs text-accent">للتشطيبات الفاخرة</span>
+              </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2024 تشطيبات محترفة. جميع الحقوق محفوظة.
+              © 2024 شركة المهندس أحمد جوده للتشطيبات الفاخرة. جميع الحقوق محفوظة.
             </p>
           </div>
         </div>
