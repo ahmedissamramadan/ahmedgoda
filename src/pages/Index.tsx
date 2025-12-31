@@ -57,7 +57,7 @@ const Index = () => {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/201234567890"
+              href="https://wa.me/201001234567"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
@@ -452,8 +452,8 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/70">اتصل بنا</p>
-                    <a href="tel:+201234567890" className="font-semibold hover:text-accent transition-colors">
-                      0123 456 7890
+                    <a href="tel:+201001234567" className="font-semibold hover:text-accent transition-colors" dir="ltr">
+                      01001234567
                     </a>
                   </div>
                 </div>
@@ -465,12 +465,13 @@ const Index = () => {
                   <div>
                     <p className="text-sm text-primary-foreground/70">واتساب</p>
                     <a 
-                      href="https://wa.me/201234567890" 
+                      href="https://wa.me/201001234567" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="font-semibold hover:text-accent transition-colors"
+                      dir="ltr"
                     >
-                      0123 456 7890
+                      01001234567
                     </a>
                   </div>
                 </div>
@@ -481,8 +482,8 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-sm text-primary-foreground/70">البريد الإلكتروني</p>
-                    <a href="mailto:info@ahmedgouda.com" className="font-semibold hover:text-accent transition-colors">
-                      info@ahmedgouda.com
+                    <a href="mailto:info@ahmedgouda-finishing.com" className="font-semibold hover:text-accent transition-colors" dir="ltr">
+                      info@ahmedgouda-finishing.com
                     </a>
                   </div>
                 </div>
@@ -492,8 +493,8 @@ const Index = () => {
                     <Clock className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-sm text-primary-foreground/70">ساعات العمل</p>
-                    <p className="font-semibold">السبت - الخميس: 9 صباحاً - 6 مساءً</p>
+                    <p className="text-sm text-primary-foreground/70">مواعيد العمل</p>
+                    <p className="font-semibold">السبت – الخميس: ٩ ص – ٦ م</p>
                   </div>
                 </div>
               </div>
@@ -503,8 +504,8 @@ const Index = () => {
                   <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm text-primary-foreground/70">نغطي مناطق</p>
-                  <p className="font-semibold">القاهرة الجديدة، التجمع، الشيخ زايد، المعادي، مدينة نصر</p>
+                  <p className="text-sm text-primary-foreground/70">مناطق الخدمة</p>
+                  <p className="font-semibold">القاهرة الجديدة – التجمع – الشيخ زايد – المعادي – مدينة نصر</p>
                 </div>
               </div>
             </div>
