@@ -32,6 +32,7 @@ import diningBeforeAfter from "@/assets/dining-before-after.png";
 import hallwayBeforeAfter from "@/assets/hallway-before-after.png";
 import livingBeforeAfter from "@/assets/living-before-after.png";
 import ahmedGoudaPhoto from "@/assets/ahmed-gouda.png";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -48,9 +49,7 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 gradient-navy rounded-lg flex items-center justify-center">
-              <Wrench className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="شعار المهندس أحمد جوده" className="w-10 h-10 object-contain" />
             <div className="flex flex-col">
               <span className="text-base md:text-lg font-bold text-foreground leading-tight">المهندس أحمد جوده</span>
               <span className="text-xs text-accent">للتشطيبات الفاخرة</span>
