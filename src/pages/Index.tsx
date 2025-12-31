@@ -31,6 +31,7 @@ import bedroomBeforeAfter from "@/assets/bedroom-before-after.png";
 import diningBeforeAfter from "@/assets/dining-before-after.png";
 import hallwayBeforeAfter from "@/assets/hallway-before-after.png";
 import livingBeforeAfter from "@/assets/living-before-after.png";
+import ahmedGoudaPhoto from "@/assets/ahmed-gouda.png";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -140,16 +141,59 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 bg-background">
+      {/* About Section - Engineer Profile */}
+      <section id="about" className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="section-heading">من نحن</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              <strong className="text-foreground">شركة المهندس أحمد جوده للتشطيبات الفاخرة</strong> — متخصصون في تشطيبات الشقق والفيلات والمحال التجارية بأعلى معايير الجودة والسلامة. 
-              خبرة تتجاوز 15 سنة في السوق المصري، نفذنا أكثر من 150 مشروع في القاهرة الجديدة، التجمع، 
-              الشيخ زايد، والمعادي. نلتزم بالجداول الزمنية ونقدم عقود واضحة وشفافة مع ضمان مكتوب على جميع الأعمال.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Engineer Photo */}
+            <div className="flex justify-center lg:justify-start order-1 lg:order-2">
+              <div className="relative">
+                <div className="w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-accent">
+                  <img
+                    src={ahmedGoudaPhoto}
+                    alt="المهندس أحمد جوده - مؤسس ومدير شركة التشطيبات الفاخرة"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-xl -z-10"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/30 rounded-xl -z-10"></div>
+              </div>
+            </div>
+            
+            {/* Engineer Info */}
+            <div className="text-center lg:text-right order-2 lg:order-1">
+              <h2 className="section-heading">المهندس أحمد جوده</h2>
+              <p className="text-accent font-semibold text-lg mb-4">مؤسس ومدير الشركة</p>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  مهندس مدني متخصص في أعمال التشطيبات الفاخرة، يمتلك خبرة تتجاوز <strong className="text-foreground">15 عامًا</strong> في تنفيذ وإدارة مشاريع التشطيبات السكنية والتجارية بالقاهرة الكبرى.
+                </p>
+                <p>
+                  تخرج من كلية الهندسة وبدأ مسيرته المهنية في كبرى شركات المقاولات، ثم أسس شركته الخاصة ليقدم خدمات تشطيب متكاملة تجمع بين <strong className="text-foreground">الجودة العالية</strong> و<strong className="text-foreground">الالتزام بالمواعيد</strong> و<strong className="text-foreground">الأسعار العادلة</strong>.
+                </p>
+                <p>
+                  أشرف شخصيًا على تنفيذ أكثر من <strong className="text-foreground">150 مشروع</strong> تشطيب في أرقى أحياء القاهرة الجديدة، التجمع الخامس، الشيخ زايد، والمعادي — وكل مشروع يحمل توقيعه هو شهادة على التميز والاحترافية.
+                </p>
+              </div>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-4 mt-8">
+                <div className="bg-muted/50 rounded-xl p-4 text-center">
+                  <p className="text-2xl md:text-3xl font-bold text-accent">+15</p>
+                  <p className="text-sm text-muted-foreground">سنة خبرة</p>
+                </div>
+                <div className="bg-muted/50 rounded-xl p-4 text-center">
+                  <p className="text-2xl md:text-3xl font-bold text-accent">+150</p>
+                  <p className="text-sm text-muted-foreground">مشروع منجز</p>
+                </div>
+                <div className="bg-muted/50 rounded-xl p-4 text-center">
+                  <p className="text-2xl md:text-3xl font-bold text-accent">12</p>
+                  <p className="text-sm text-muted-foreground">شهر ضمان</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
