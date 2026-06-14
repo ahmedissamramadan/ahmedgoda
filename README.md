@@ -1,12 +1,15 @@
 # Ahmed Gouda — Interior Design & Renovation Portfolio
 
+[![🌐 Live Site](https://img.shields.io/badge/🌐%20Live%20Site-Visit%20Now-brightgreen?style=for-the-badge)](https://ahmedgoda.lovable.app)
+
+
 ## Overview
 This repository contains the source code for the professional portfolio of **Ahmed Gouda**, showcasing his expertise in interior design, home renovation, and space transformation.
 
 ## Project Details
 - **Role**: Front-end Development & UI/UX Implementation
 - **Tech Stack**: React, TypeScript, Vite, Tailwind CSS, shadcn/ui
-- **Live Demo**: [View Live Project](https://ahmedgoda.lovable.app/) *(Link will be updated to final domain)*
+- **Live Demo**: [View Live Project](https://ahmedgoda.lovable.app/)
 
 ## Key Features
 - **Visual-First Design**: Focuses heavily on high-quality imagery to showcase design work.
