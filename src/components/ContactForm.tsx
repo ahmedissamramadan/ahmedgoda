@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -18,108 +16,101 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1200));
     toast({
-      title: "تم استلام طلبك بنجاح!",
-      description: "هنتواصل معاك خلال 24 ساعة لتحديد موعد المعاينة.",
+      title: "تم استلام طلبك بنجاح! ✨",
+      description: "هنتواصل معاك خلال 24 ساعة لتحديد موعد المعاينة المجانية.",
     });
-    
-    setFormData({
-      name: "",
-      phone: "",
-      area: "",
-      projectType: "",
-      size: "",
-    });
+    setFormData({ name: "", phone: "", area: "", projectType: "", size: "" });
     setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const fieldCls =
+    "w-full h-[48px] px-4 rounded-full border border-border bg-white/80 backdrop-blur text-[14px] font-medium text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent/40 transition-all shadow-sm";
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <Input
+    <form onSubmit={handleSubmit} className="space-y-3.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <input
           name="name"
           placeholder="الاسم الكامل"
           value={formData.name}
           onChange={handleChange}
           required
-          className="bg-card border-border text-foreground placeholder:text-muted-foreground"
+          className={fieldCls}
         />
-      </div>
-      
-      <div>
-        <Input
+        <input
           name="phone"
           type="tel"
           placeholder="رقم الهاتف (واتساب)"
           value={formData.phone}
           onChange={handleChange}
           required
-          className="bg-card border-border text-foreground placeholder:text-muted-foreground"
+          className={fieldCls}
+          dir="ltr"
         />
       </div>
-      
-      <div>
-        <Input
-          name="area"
-          placeholder="المنطقة / الحي"
-          value={formData.area}
-          onChange={handleChange}
-          required
-          className="bg-card border-border text-foreground placeholder:text-muted-foreground"
-        />
-      </div>
-      
-      <div>
-        <select
-          name="projectType"
-          value={formData.projectType}
-          onChange={handleChange}
-          required
-          className="w-full h-10 px-3 rounded-md border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-        >
-          <option value="">نوع المشروع</option>
-          <option value="apartment">شقة</option>
-          <option value="villa">فيلا</option>
-          <option value="office">مكتب</option>
-          <option value="shop">محل تجاري</option>
-        </select>
-      </div>
-      
-      <div>
-        <Input
+
+      <input
+        name="area"
+        placeholder="المنطقة / الحي — مثال: التجمع الخامس"
+        value={formData.area}
+        onChange={handleChange}
+        required
+        className={fieldCls}
+      />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="relative">
+          <select
+            name="projectType"
+            value={formData.projectType}
+            onChange={handleChange}
+            required
+            className={`${fieldCls} appearance-none cursor-pointer`}
+          >
+            <option value="">نوع المشروع</option>
+            <option value="apartment">شقة سكنية</option>
+            <option value="villa">فيلا</option>
+            <option value="office">مكتب / شركة</option>
+            <option value="shop">محل تجاري</option>
+            <option value="renovation">تجديد جزئي</option>
+          </select>
+          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">▾</span>
+        </div>
+        <input
           name="size"
-          placeholder="المساحة التقريبية (م²)"
+          placeholder="المساحة (م²)"
           value={formData.size}
           onChange={handleChange}
-          className="bg-card border-border text-foreground placeholder:text-muted-foreground"
+          className={fieldCls}
         />
       </div>
-      
-      <Button 
-        type="submit" 
+
+      <button
+        type="submit"
         disabled={isSubmitting}
-        className="w-full btn-gold text-base"
+        className="w-full h-[52px] btn-gold text-[15px] font-bold mt-2 disabled:opacity-60"
       >
         {isSubmitting ? (
-          "جاري الإرسال..."
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" /> جاري الإرسال...
+          </>
         ) : (
           <>
-            <Send className="w-4 h-4 ml-2" />
             احجز معاينة مجانية
+            <Send className="w-4 h-4 -scale-x-100" />
           </>
         )}
-      </Button>
+      </button>
+
+      <p className="text-center text-xs text-muted-foreground font-medium pt-1">
+        بالضغط، أنت توافق على التواصل لتحديد موعد المعاينة — بدون أي التزام
+      </p>
     </form>
   );
 };
