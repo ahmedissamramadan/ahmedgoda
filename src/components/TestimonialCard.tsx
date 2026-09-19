@@ -24,13 +24,13 @@ const TestimonialCard = ({ quote, name, location, projectType }: TestimonialCard
         </span>
       </div>
 
-      <p className="text-[14px] leading-7 text-foreground/85 font-medium flex-1 text-right">“{quote}”</p>
+      <p className="text-[14px] leading-7 text-foreground/85 font-medium flex-1 text-left">“{quote}”</p>
 
       <div className="mt-6 pt-5 border-t border-border/60 flex items-center gap-3">
         <div className="w-10 h-10 rounded-full gradient-navy flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
-          {name.charAt(2) || name.charAt(0)}
+          {name.charAt(0)}
         </div>
-        <div className="text-right">
+        <div className="text-left">
           <p className="text-sm font-bold text-foreground leading-none">{name}</p>
           <p className="text-xs text-muted-foreground mt-1">
             {location} • {projectType}

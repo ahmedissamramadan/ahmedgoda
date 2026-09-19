@@ -18,8 +18,8 @@ const ContactForm = () => {
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1200));
     toast({
-      title: "تم استلام طلبك بنجاح! ✨",
-      description: "هنتواصل معاك خلال 24 ساعة لتحديد موعد المعاينة المجانية.",
+      title: "Request received! ✨",
+      description: "We'll contact you within 24 hours to schedule your free site visit.",
     });
     setFormData({ name: "", phone: "", area: "", projectType: "", size: "" });
     setIsSubmitting(false);
@@ -37,7 +37,7 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         <input
           name="name"
-          placeholder="الاسم الكامل"
+          placeholder="Full name"
           value={formData.name}
           onChange={handleChange}
           required
@@ -46,18 +46,17 @@ const ContactForm = () => {
         <input
           name="phone"
           type="tel"
-          placeholder="رقم الهاتف (واتساب)"
+          placeholder="Phone (WhatsApp)"
           value={formData.phone}
           onChange={handleChange}
           required
           className={fieldCls}
-          dir="ltr"
         />
       </div>
 
       <input
         name="area"
-        placeholder="المنطقة / الحي — مثال: التجمع الخامس"
+        placeholder="Area / District — e.g. New Cairo"
         value={formData.area}
         onChange={handleChange}
         required
@@ -73,18 +72,18 @@ const ContactForm = () => {
             required
             className={`${fieldCls} appearance-none cursor-pointer`}
           >
-            <option value="">نوع المشروع</option>
-            <option value="apartment">شقة سكنية</option>
-            <option value="villa">فيلا</option>
-            <option value="office">مكتب / شركة</option>
-            <option value="shop">محل تجاري</option>
-            <option value="renovation">تجديد جزئي</option>
+            <option value="">Project type</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+            <option value="office">Office</option>
+            <option value="shop">Retail / Shop</option>
+            <option value="renovation">Partial renovation</option>
           </select>
-          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">▾</span>
+          <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground">▾</span>
         </div>
         <input
           name="size"
-          placeholder="المساحة (م²)"
+          placeholder="Approx. size (m²)"
           value={formData.size}
           onChange={handleChange}
           className={fieldCls}
@@ -98,18 +97,18 @@ const ContactForm = () => {
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" /> جاري الإرسال...
+            <Loader2 className="w-4 h-4 animate-spin" /> Sending...
           </>
         ) : (
           <>
-            احجز معاينة مجانية
-            <Send className="w-4 h-4 -scale-x-100" />
+            Book free site visit
+            <Send className="w-4 h-4" />
           </>
         )}
       </button>
 
       <p className="text-center text-xs text-muted-foreground font-medium pt-1">
-        بالضغط، أنت توافق على التواصل لتحديد موعد المعاينة — بدون أي التزام
+        By submitting, you agree to be contacted to schedule the visit — no commitment
       </p>
     </form>
   );

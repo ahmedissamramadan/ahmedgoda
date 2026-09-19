@@ -54,12 +54,12 @@ const ProjectCard = ({
         <p className="text-sm text-muted-foreground mb-3">{scope}</p>
         
         <div className="bg-accent/10 text-accent-foreground text-sm p-3 rounded mb-4">
-          <span className="font-semibold">النتيجة: </span>
+          <span className="font-semibold">Result: </span>
           {result}
         </div>
 
         <button className="flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
-          <span>تفاصيل وصور قبل/بعد</span>
+          <span>Details & before/after</span>
           <ArrowLeft className="w-4 h-4" />
         </button>
       </div>

@@ -17,7 +17,7 @@ const ServiceCard = ({ icon: Icon, title, description, index = 0 }: ServiceCardP
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.07, ease: [0.23, 1, 0.32, 1] }}
       whileHover={{ y: -6 }}
-      className="group relative bg-card rounded-[1.5rem] p-[1.5rem] md:p-7 border border-border/70 overflow-hidden text-right flex flex-col"
+      className="group relative bg-card rounded-[1.5rem] p-[1.5rem] md:p-7 border border-border/70 overflow-hidden text-left flex flex-col"
       style={{ boxShadow: "0 1px 3px hsl(215 66% 14% / 0.06), 0 8px 24px hsl(215 66% 14% / 0.04)" }}
     >
       {/* subtle gold glow on hover */}
@@ -43,7 +43,7 @@ const ServiceCard = ({ icon: Icon, title, description, index = 0 }: ServiceCardP
       <p className="relative text-[13.5px] leading-6 text-muted-foreground font-medium">{description}</p>
 
       <div className="relative mt-6 flex items-center gap-2 text-xs font-bold text-accent opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-        <span>اكتشف التفاصيل</span>
+        <span>Discover details</span>
         <span className="w-6 h-px bg-accent/50" />
       </div>
     </motion.div>

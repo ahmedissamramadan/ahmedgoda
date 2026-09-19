@@ -28,13 +28,13 @@ const ProcessStep = ({ number, title, description, icon: Icon, index = 0 }: Proc
           <Icon className="w-5 h-5 text-white" strokeWidth={1.6} />
           <div className="absolute inset-0 bg-gradient-to-tr from-white/12 to-transparent opacity-60" />
         </div>
-        <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-extrabold border-2 border-background shadow-md"
+        <div className="absolute -top-2 -left-2 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-extrabold border-2 border-background shadow-md"
           style={{ background: "linear-gradient(135deg, hsl(44 85% 58%), hsl(42 78% 46%))", color: "hsl(215 66% 10%)" }}
         >
           {number}
         </div>
       </div>
-      <div className="flex-1 pt-1 text-right">
+      <div className="flex-1 pt-1 text-left">
         <h3 className="text-[15px] md:text-[16px] font-bold text-foreground mb-1.5 leading-tight">{title}</h3>
         <p className="text-[13.5px] leading-6 text-muted-foreground font-medium">{description}</p>
       </div>
